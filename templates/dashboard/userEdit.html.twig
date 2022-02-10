@@ -1,0 +1,57 @@
+{% extends 'backend.html.twig' %}
+
+{% block body %}
+    <div class="rightside">
+        <div class="page__header">
+            <div class="page__user"><!----><!---->
+                <div class="return"><a href="{{ path('admin_dash') }}" class=""><img
+                                src="{{ asset('VisioStyle/assets/icons/arrow-back.svg') }}"
+                                alt=""></a>
+                    <p>Profile update!</p>
+                </div>
+            </div>
+            <div class="page__actions">
+                <div class="page__actions-buttons">
+
+                    <div class="page__actions-log">
+                        <a class="page__actions-button warning" href="{{ path('app_logout') }}">
+                            <img src="{{ asset('VisioStyle/assets/icons/logout.svg') }}"
+                                 alt="app_index">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form class="schedule--form">
+            <div class="schedule__form">
+                {{ form_start(formUser, {'attr': {'inovalidate': 'novalidate'}}) }}
+                {{ form_errors(formUser.email) }}<br>
+                {{ form_errors(formUser.imageFile) }}
+                <div class="container-body col-md-6">
+                    <div class="form__control"> {{ form_widget(formUser.fullName,{'attr': {'class': 'input rounded--top form-control is-invalid','placeholder':'FullName'}}) }}</div>
+                    <div class="form__control"> {{ form_widget(formUser.email,{'label':false,'attr': {'class': 'input','placeholder':'Email Address'}}) }}</div>
+                    <div class="form__control"> {{ form_widget(formUser.imageFile,{'attr': {'class': 'input'}}) }}</div>
+                    {{ form_widget(formUser) }}
+                    <br>
+                    <div class="form__buttons">
+                        <div class="button__group-btn">
+                            <button type="submit" class="btn btn--medium btn--default"><!----> Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{ form_end(formUser) }}
+        </form>
+    </div>
+{% endblock %}
+    {% block javascripts %}
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $(".rooms").select2({
+                    placeholder: "Select room",
+                    class:"form__control"
+                });
+            });
+        </script>
+    {% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'backend.html.twig' %}
+
+{% block title %}
+    File not found
+{% endblock  %}
+
+{% block body %}
+    <div class="rightside">
+        <h1 class="page__title text--info">{{status_code}}</h1>
+        <p class="page__title file--text">{{status_text}}!</p>
+        <div class="file__image">
+            <img src="{{ asset('VisioStyle/assets/img/error.png') }}" alt="">
+        </div>
+        <p class="page__text text--sorry">The page you requested return status: - {{status_text}}.</p>
+        <p class="page__text text--please"> Please go back to the <a href="{{ path('app_logout') }}"> homepage!</a></p>
+
+    </div>
+{% endblock %}
+
+

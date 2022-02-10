@@ -1,0 +1,22 @@
+{% extends 'backend.html.twig' %}
+
+{% block title %}
+    Forbidden
+{% endblock  %}
+
+{% block body %}
+    <div class="rightside">
+        <h1 class="page__title text--info">403 !</h1>
+        <p class="page__title file--text">Access is denied!</p>
+        <div class="file__image">
+            <img src="{{ asset('VisioStyle/assets/img/error.png') }}" alt="">
+        </div>
+        <p class="page__text text--sorry">We’re sorry, the page you requested could not be found.</p>
+        <p class="page__text text--please"> Please go back to the <a href="{{ path('app_logout') }}"> homepage!</a></p>
+{#                <div class="button__group-btn">#}
+{#                    <a href="{{ path('app_logout') }}" class="btn btn--medium btn--default">#}
+{#                        <!---->Home Page</a>#}
+{#                </div>#}
+    </div>
+{% endblock %}
+

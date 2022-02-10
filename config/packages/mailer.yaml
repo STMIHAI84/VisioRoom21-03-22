@@ -1,0 +1,4 @@
+framework:
+    mailer:
+        dsn: '%env(MAILER_DSN)%'
+#        url: '%env(MAILER_URL)%'

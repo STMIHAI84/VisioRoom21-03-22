@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Welcome!{% endblock %}</title>
+
+    {% block stylesheets %}
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+        <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+        <link rel="stylesheet" href="{{ asset('VisioStyle/css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('VisioStyle/assets/fonts/fonts.css') }}">
+        <link rel="stylesheet" href="{{ asset('VisioStyle/assets/img/bg-bottom.svg') }}">
+        <link rel="stylesheet" href="{{ asset('VisioStyle/assets/fonts/fonts.css') }}">
+        <link rel="stylesheet" href="{{ asset('VisioStyle/assets/img/noise-bg.svg') }}">
+    {% endblock %}
+
+</head>
+<body>
+
+{% block leftbar %}
+<main>
+    <div class="leftbar" style="max-width: 25%;">
+        <div class="leftbar__circle"></div>
+        <div class="leftbar__circle"></div>
+    </div>
+
+    <div class="container" style="margin: 0px 60px;">
+        <div class="wrapper">
+            <div class="login">
+                <div class="leftside">
+                    <div class="topbar">
+                        <a href="/" class="router-link-active"><img src="{{ asset('VisioStyle/assets/img/logo.svg') }}"
+                                                                    alt=""></a>
+                    </div>
+                    <div class="leftside__text">
+                        <h1> Welcome to <span>VisioRoom!</span></h1>
+                        <p class="page__description"> The service of free <br>personal and group calls. </p>
+                    </div>
+                </div>
+
+                {% endblock %}
+
+                {% block body %}
+                {% endblock %}
+
+                {% block bottom %}
+                <div class="bottom">
+                    <p class="copyrights" style="margin: 0px;">© {{ "now"|date("Y") }} VisioRoom.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block javascripts %}
+{#    <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>#}
+{#    <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>#}
+    <script src="{{ asset('VisioStyle/js/main.js') }}"></script>
+    {# <script src="{{ asset('visioApp/public/script.js') }}"></script> #}
+
+{% endblock %}
+</body>
+</html>

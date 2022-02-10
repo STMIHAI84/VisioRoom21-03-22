@@ -1,0 +1,181 @@
+{% extends 'backend.html.twig' %}
+
+{% block leftbar %}
+<main>
+    <!---->
+    <div class="leftbar" style="max-width: 25%;">
+        <div class="leftbar__circle"></div>
+        <div class="leftbar__circle"></div>
+    </div>
+    <div class="container" style="margin: 0px 60px;">
+        <div class="wrapper">
+            <div class="dashboard">
+                <div class="leftside">
+                    <div class="topbar">
+                        <a href="/" class="router-link-active"><img
+                                    src="{{ asset('VisioStyle/assets/img/logo.svg') }}" alt=""></a>
+                    </div>
+                    <nav class="nav">
+                        <ul class="nav__list">
+                            {% if is_granted('ROLE_SUPER_ADMIN') %}
+                            <li>
+                                <a href="#" aria-current="page"
+                                   class="router-link-exact-active router-link-active"><img
+                                            src="{{ asset('VisioStyle/assets/icons/squares.svg') }}" alt="">
+                                    Dashboard </a>
+                            </li>
+                                {% else %}
+                                    <li>
+                                        <a href="{{ path('admin_dash') }}" aria-current="page"
+                                           class="router-link-exact-active router-link-active"><img
+                                                    src="{{ asset('VisioStyle/assets/icons/squares.svg') }}" alt="">
+                                            Dashboard </a>
+                                    </li>
+                            {% endif %}
+                            <li>
+                                <a href="/contacts" class=""><img
+                                            src="{{ asset('VisioStyle/assets/icons/contacts.svg') }}"
+                                            alt=""> Your contacts </a>
+                            </li>
+                            <li>
+                                <a href="/join/trg-ras-dds" class=""><img
+                                            src="{{ asset('VisioStyle/assets/icons/clock.svg') }}" alt=""> History
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class=""><img
+                                            src="{{ asset('VisioStyle/assets/icons/settings.svg') }}"
+                                            alt=""> Settings </a>
+                            </li>
+                            <li>
+                                <a href="/terms" class=""><img
+                                            src="{{ asset('VisioStyle/assets/icons/terms.svg') }}" alt="">
+                                    Terms &amp; Conditions </a>
+                            </li>
+                            <li>
+                                <a href="/faq" class=""><img src="{{ asset('VisioStyle/assets/icons/faq.svg') }}"
+                                                             alt=""> FAQ
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/contact" class=""><img
+                                            src="{{ asset('VisioStyle/assets/icons/contacts.svg') }}"
+                                            alt=""> Contact us </a>
+                            </li>
+                            <li>
+                                <a href="/about" class=""><img
+                                            src="{{ asset('VisioStyle/assets/icons/about.svg') }}" alt="">
+                                    About us </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                {% endblock %}
+                {% block body %}
+                <div class="rightside">
+                    <div class="page__header">
+                        <div class="page__user">
+                            {% if 'ROLE_USER' %}
+                                <div class="page__user-avatar"><img src="{{ asset('VisioStyle/assets/img/avatar.png') }}" alt="">
+                                    <div class="page__user-edit"><img src="{{ asset('VisioStyle/assets/icons/change-avatar.svg') }}" alt=""></div>
+                                    <div class="page__user-status"></div>
+                                {% endif %}
+                                <div class="page__user-status"></div>
+                            </div>
+                            <div class="page__user-name">
+                                <p> Hello, <span>{{ app.user }}</span>! </p>
+                            </div>
+                        </div>
+                        <div class="page__actions">
+                            <div class="page__actions-buttons">
+                                <div class="page__actions-log">
+                                    <a class="page__actions-button warning" href="{{ path('app_logout') }}">
+                                        <img src="{{ asset('VisioStyle/assets/icons/logout.svg') }}"
+                                             alt="app_index">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dashboard__body">
+                        <div class="dashboard__body-actions">
+                            <div class="dashboard__body-action meeting--new">
+                                <div class="dashboard__body-icon"><img
+                                            src="{{ asset('VisioStyle/assets/icons/new-meeting.svg') }}" alt="">
+                                </div>
+                                <div class="dashboard__body-card">
+                                    <p> New <br>meeting </p>
+                                    <span> Creat link to your right <br>now video call </span>
+                                    <div class="button__group-btn">
+                                        <button class="btn btn--medium btn--default quick__link"
+                                        ><!----> Start now
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dashboard__body-action meeting--schedule">
+                                <div class="dashboard__body-icon"><img
+                                            src="{{ asset('VisioStyle/assets/icons/schedule-meeting.svg') }}"
+                                            alt=""></div>
+                                <div class="dashboard__body-card">
+                                    <p> Schedule <br>a meeting </p>
+                                    <span> Schedule a meeting with <br>your teammates </span>
+                                    <div class="button__group-btn">
+                                        <a href="{{ path('schedule_meeting') }}" class="btn btn--medium btn--default">
+                                            <!---->Create </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!---->
+            </div>
+            {% endblock %}
+            {% block bottom %}
+            <div class="bottom">
+                <!---->
+                <p class="copyrights" style="margin: 0px;">© 2021 VisioRoom.com</p>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+    <div class="modal__container">
+        <div class="overlay"></div>
+        <div class="modal">
+            <div class="modal__header">
+                <div class="modal__header-close"><img src="{{ asset('VisioStyle/assets/icons/close.svg') }}" alt="">
+                </div>
+            </div>
+            <div class="modal__body">
+                <div class="modal__body-description"><img
+                            src="{{ asset('VisioStyle/assets/img/modal-generate-link.svg') }}" alt="">
+                    <p>Link to your meeting</p><span> Copy this link and share with those you want <br> to invite. Save it if you are planning a meeting later. </span>
+                    <div class="form__control"><input readonly="readonly" autocomplete="off" type="text"
+                                                      class="input rounded input--small link--input"><span
+                                class="generated--link">
+                            https://video-chat-app-v1.herokuapp.com/b6361da7-bfca-43af-93d9-2bae614d2c0d</span>
+                        <div class="button__group-btn">
+                            <button class="btn btn--medium btn--default copy--btn"><!----> Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{# {% else %} #}
+
+    {# <div style="text-align:center"> #}
+    {# <div class="page__text"> #}
+    {# <H1>401 page not found!!!   </H1> #}
+    {# <br> #}
+    {# <p> Please #}
+    {# <a href="{{ path('app_login') }}">Log in</a> #}
+    {# </p> #}
+    {# </div> #}
+    {# </div>> #}
+    {# {% endif %} #}
+
+{% endblock %}

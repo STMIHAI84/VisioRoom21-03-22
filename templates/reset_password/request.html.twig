@@ -1,0 +1,33 @@
+{% extends 'backend.html.twig' %}
+
+{% block title %}Reset your password{% endblock %}
+
+{% block body %}
+    <div class="rightside">
+        {% for flashError in app.flashes('reset_password_error') %}
+            <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+        {% endfor %}
+        <div class="page__header">
+            <div class="return">
+                <a href="{{ path('app_login') }}" class=""><img
+                            src="{{ asset('VisioStyle/assets/icons/arrow-back.svg') }}"
+                            alt=""></a>
+                <p> Reset your password !</p>
+            </div>
+        </div>
+        <p class="page__text">
+            Enter your email address and we will send you a
+            link to reset your password.
+        </p>
+        {{ form_start(requestForm) }}
+
+        <div class="form__control"> {{ form_row(requestForm.email,{'label':false,'attr': {'class': 'input rounded','placeholder':'Email'}}) }}</div>
+        <br><br>
+        <div class="form__buttons">
+            <div class="button__group-btn">
+                <button class="btn btn--lg btn--default">Send reset email</button>
+            </div>
+        </div>
+        {{ form_end(requestForm) }}
+    </div>
+{% endblock %}

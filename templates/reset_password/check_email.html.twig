@@ -1,0 +1,28 @@
+{% extends 'backend.html.twig' %}
+
+{% block title %}Reset your password{% endblock %}
+
+{% block body %}
+    <div class="rightside">
+        <div class="page__header">
+            <div class="return"><a href="{{ path('app_login') }}" class=""><img
+                            src="{{ asset('VisioStyle/assets/icons/arrow-back.svg') }}"
+                            alt=""></a>
+                <p> Back to login !</p>
+            </div>
+        </div>
+        <p class="page__text">
+            If an account matching your email exists, then an email was just sent that contains a link
+            that
+            you can use to reset your password.
+            This link will expire
+            in {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}
+            .</p><br>
+        <br>
+        <p class="page__text">
+            If you don't receive an email please check your spam folder or <a
+                    href="{{ path('app_forgot_password_request') }}">try again</a>.</p>
+    </div>
+{% endblock %}
+
+

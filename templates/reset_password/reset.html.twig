@@ -1,0 +1,24 @@
+{% extends 'backend.html.twig' %}
+
+{% form_theme resetForm 'bootstrap_4_horizontal_layout.html.twig' %}
+
+{% block title %}Reset your password{% endblock %}
+
+                {% block body %}
+                    <div class="rightside">
+                        <h1>Reset your password</h1>
+                        <div class="container-body col-md-6">
+                            {{ form_start(resetForm) }}
+
+                            {{ form_errors(resetForm.plainPassword) }}
+                            {{ form_row(resetForm.plainPassword) }}
+                            <br>
+                            <div class="form__buttons">
+                                <div class="button__group-btn">
+                                    <button class="btn btn--medium btn--default">Reset password</button>
+                                </div>
+                            </div>
+                            {{ form_end(resetForm) }}
+                        </div>
+                    </div>
+                {% endblock %}

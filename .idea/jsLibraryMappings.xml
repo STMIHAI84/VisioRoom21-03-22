@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="PROJECT" libraries="{all, c939d0e917, jquery-1.10.2, jquery-ui, jquery.timepicker, peerjs, select2, socket.io}" />
+    <includedPredefinedLibrary name="Node.js Core" />
+  </component>
+</project>

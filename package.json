@@ -1,0 +1,35 @@
+{
+  "devDependencies": {
+    "@symfony/stimulus-bridge": "^2.0.0",
+    "@symfony/webpack-encore": "^1.6.1",
+    "core-js": "^3.0.0",
+    "regenerator-runtime": "^0.13.2",
+    "stimulus": "^2.0.0",
+    "uuid": "^8.3.2",
+    "vue": "^2.6.14",
+    "vue-loader": "^15.9.5",
+    "vue-template-compiler": "^2.6.14",
+    "webpack-notifier": "^1.14.1"
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "dev-server": "encore dev-server",
+    "dev": "encore dev",
+    "watch": "encore dev --watch",
+    "build": "encore production --progress"
+  },
+  "name": "visioroom",
+  "version": "0.0.1",
+  "description": "my visioChat socket.io app",
+  "dependencies": {
+    "connec": "^0.1.8",
+    "express": "^4.17.2",
+    "node-twig": "^1.2.0",
+    "peer": "^0.6.1",
+    "preact-router": "^4.0.0",
+    "serve-static": "^1.14.1",
+    "socket.io": "^4.4.1",
+    "webpack": "^5.65.0"
+  }
+}

@@ -1,0 +1,86 @@
+{% extends 'backend.html.twig' %}
+
+
+
+{% block body %}
+    <div class="rightside">
+        <div class="page__header">
+            <div class="page__user"><!----><!---->
+                <div class="return"><a href="{{ path('admin_dash') }}" class=""><img
+                                src="{{ asset('VisioStyle/assets/icons/arrow-back.svg') }}"
+                                alt=""></a>
+                    <p>Schedule a meeting</p>
+                </div>
+            </div>
+            <div class="page__actions">
+                <div class="page__actions-buttons">
+
+                    <div class="page__actions-log">
+                        <a class="page__actions-button warning" href="{{ path('app_logout') }}">
+                            <img src="{{ asset('VisioStyle/assets/icons/logout.svg') }}"
+                                 alt="app_index">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="schedule__form">
+            {{ form_start(form, {'attr': {'inovalidate': 'novalidate'}}) }}
+            <form action="" class="schedule--form">
+
+                <div class="schedule__form-body">
+                    <div class="schedule__form-data">
+                        <div class="form__control"> {{ form_widget(form.name,{'label':false,'attr': {'class': 'input rounded--top form-control is-invalid','placeholder':'Meeting Name'}}) }}</div>
+                        <div class="form__control"> {{ form_widget(form.description,{'label':false,'attr': {'class': 'input','placeholder':'Description of the meeting'}}) }}</div>
+
+                        <!----></div>
+                    <div class="schedule__form-time">
+                        <div class="form__control"> {{ form_widget(form.programedFor.time,{'label':false,'value':false,'id':'timepicker-1','attr': {'class': 'input rounded--top','type':'time','autocomplete':'off','placeholder':'--:--'} }) }}</div>
+                        <div class="form__control"> {{ form_widget(form.programedFor.date,{'label':false,'value':false,'id':'datepicker-13','attr': {'autocomplete':'off','type':'text','class': 'input rounded--bottom','placeholder':'dd/mm/yyyy'} }) }}</div>
+                    </div>
+                </div>
+                {{ form_widget(form) }}
+                <div class="form__actions">
+                    <div class="checkbox">
+                        <label for="agree">
+                            <input type="checkbox" id="agree">
+                            <span class="checkmark">
+                                </span> I agree all statement in <a href="#" class="">&nbsp;Terms
+                                &amp; Conditions</a></label>
+                    </div>
+                </div>
+                    <div class="form__buttons">
+                        <div class="button__group-btn">
+                            <button type="submit" class="btn btn--medium btn--default"><!----> Create</button>
+                        </div>
+                    </div>
+            </form>
+                </div>
+
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker-13").datepicker();
+            $("#timepicker-1").timepicker({timeFormat: 'HH:mm'});
+
+        });
+
+        type = "text/javascript" >
+            $(document).ready(function () {
+                $(".users").select2({
+                    placeholder: "Select participant"
+                });
+            });
+
+        $(document).ready(function () {
+            $('input.timepicker').timepicker({});
+        });
+    </script>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'backend.html.twig' %}
+
+    {% block title %}Log in!{% endblock %}
+
+    {% block body %}
+        <div class="rightside">
+            <h2 class="page__title">Hello !</h2>
+            <p class="page__text">Welcome back, please login to your account.</p>
+            <form method="post" action="" class="form actions__form">
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+
+                {% if app.user %}
+                    <div class="mb-3">
+                        You are logged in as {{ app.user.fullName }}
+                    </div>
+                {% endif %}
+                <div class="form__control">
+                    <input type="email" placeholder="Email Address" class="input rounded--top"
+                           value="{{ last_username }}" name="email" id="inputEmail"
+                           autocomplete="email" required autofocus><br>
+                </div>
+                <div class="form__control">
+                    <input type="password" placeholder="Password" class="input rounded--bottom"
+                           name="password" id="inputPassword"
+                           autocomplete="current-password" required>
+
+                    <input type="hidden" name="_csrf_token"
+                           value="{{ csrf_token('authenticate') }}">
+                </div>
+                <div class="form__actions">
+                    <div class="checkbox">
+                        <label for="remember_me">
+                            <input type="checkbox" id="remember_me" name="_remember_me">
+                            <span class="checkmark"></span> Remember me </label>
+                    </div>
+                    <a href="{{ path('app_forgot_password_request') }}" class="links">Forgot
+                        password?</a>
+                </div>
+                <div class="form__buttons">
+                    <div class="button__group-btn">
+                        <button type="submit" class="btn btn--medium btn--default">Log in</button>
+                    </div>
+                </div>
+            </form>
+            <div class="additional__actions">
+                <p>Don't have an account? <a href="{{ path('app_register') }}" class="">Sign Up</a>
+                </p>
+            </div>
+        </div>
+    {% endblock %}
+
