@@ -1,6 +1,13 @@
 @import url(../assets/fonts/fonts.css);
-@import '../assets/helpers/variables';
+@import url(../assets/helpers/_variables.scss);
 
+$container-max-widths: (
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xl: 1140px,
+        xxl: 1320px
+);
 * {
   margin: 0;
   padding: 0;

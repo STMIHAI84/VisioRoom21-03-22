@@ -87,32 +87,28 @@ class __TwigTemplate_05e0f741a276bcc9bae9fc11480ea4e493aaf8b800ec574185496b7be69
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 8
-        echo "    <div class=\"rightside\">
-        <div class=\"container.col-\">
-            <h1 class=\"page__title text--info\">403 !</h1>
+        echo "
+    <div class=\"rightside\">
+";
+        // line 11
+        echo "            <h1 class=\"page__title text--info\">403 !</h1>
             <p class=\"page__title file--text\">Access is denied!</p>
             <div class=\"file__image\">
                 <img src=\"";
-        // line 13
+        // line 14
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("VisioStyle/assets/img/error.png"), "html", null, true);
         echo "\" alt=\"\">
             </div>
             <p class=\"page__text text--sorry\">We’re sorry, the page you requested could not be found.</p>
             <p class=\"page__text text--please\"> Please go back to the <a href=\"";
-        // line 16
+        // line 17
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
         echo "\"> homepage!</a>
             </p>
-            ";
-        // line 19
-        echo "            ";
-        // line 20
-        echo "            ";
+        </div>
+";
         // line 21
-        echo "            ";
-        // line 22
-        echo "        </div>
-    </div>
+        echo "
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -134,7 +130,7 @@ class __TwigTemplate_05e0f741a276bcc9bae9fc11480ea4e493aaf8b800ec574185496b7be69
 
     public function getDebugInfo()
     {
-        return array (  114 => 22,  112 => 21,  110 => 20,  108 => 19,  103 => 16,  97 => 13,  90 => 8,  80 => 7,  69 => 4,  59 => 3,  36 => 1,);
+        return array (  111 => 21,  105 => 17,  99 => 14,  94 => 11,  90 => 8,  80 => 7,  69 => 4,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -146,8 +142,9 @@ class __TwigTemplate_05e0f741a276bcc9bae9fc11480ea4e493aaf8b800ec574185496b7be69
 {% endblock %}
 
 {% block body %}
+
     <div class=\"rightside\">
-        <div class=\"container.col-\">
+{#        <div class=\"container-md\">#}
             <h1 class=\"page__title text--info\">403 !</h1>
             <p class=\"page__title file--text\">Access is denied!</p>
             <div class=\"file__image\">
@@ -156,12 +153,9 @@ class __TwigTemplate_05e0f741a276bcc9bae9fc11480ea4e493aaf8b800ec574185496b7be69
             <p class=\"page__text text--sorry\">We’re sorry, the page you requested could not be found.</p>
             <p class=\"page__text text--please\"> Please go back to the <a href=\"{{ path('app_logout') }}\"> homepage!</a>
             </p>
-            {# <div class=\"button__group-btn\"> #}
-            {# <a href=\"{{ path('app_logout') }}\" class=\"btn btn--medium btn--default\"> #}
-            {# <!---->Home Page</a> #}
-            {# </div> #}
         </div>
-    </div>
+{#    </div>#}
+
 {% endblock %}
 
 ", "bundles/TwigBundle/Exception/error403.html.twig", "C:\\Users\\UPC Media\\Desktop\\symfony\\VisioRoom_Admin_01.febr.22\\templates\\bundles\\TwigBundle\\Exception\\error403.html.twig");

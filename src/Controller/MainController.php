@@ -41,7 +41,7 @@ class MainController extends AuthController
                 'home' => 'MainController',
             ]);
         }
-        return $this->render('bundles/TwigBundle/Exception/error403.html.twig');
+        return $this->render('bundles/TwigBundle/Exception/error404.html.twig');
     }
 
 }
