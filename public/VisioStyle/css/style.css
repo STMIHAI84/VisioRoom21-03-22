@@ -20,7 +20,7 @@ body {
     height: 100vh;
     font-size: 16px;
     font-family: "GolosReg";
-    overflow: hidden;
+    overflow: auto;
 }
 
 .container {
@@ -1331,7 +1331,7 @@ body {
 }
 
 .file__image {
-    margin: 0 auto 30px auto;
+    margin: 0 auto 9px 325px;
     /*width: 100%;*/
     left: 871px;
     top: 211px;

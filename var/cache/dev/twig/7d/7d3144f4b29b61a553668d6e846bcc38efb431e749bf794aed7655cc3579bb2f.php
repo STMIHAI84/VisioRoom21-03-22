@@ -172,7 +172,7 @@ class __TwigTemplate_3567d867a9ece48eae8f4e8ffdd54001858538cec89e75632a0ad1512cc
 
         // line 27
         echo "<main>
-    <div class=\"leftbar\" style=\"max-width: 25%;\">
+    <div class=\"leftbar\" style=\"max-width: 30%;\">
         <div class=\"leftbar__circle\"></div>
         <div class=\"leftbar__circle\"></div>
     </div>
@@ -319,7 +319,7 @@ class __TwigTemplate_3567d867a9ece48eae8f4e8ffdd54001858538cec89e75632a0ad1512cc
 
 {% block leftbar %}
 <main>
-    <div class=\"leftbar\" style=\"max-width: 25%;\">
+    <div class=\"leftbar\" style=\"max-width: 30%;\">
         <div class=\"leftbar__circle\"></div>
         <div class=\"leftbar__circle\"></div>
     </div>
