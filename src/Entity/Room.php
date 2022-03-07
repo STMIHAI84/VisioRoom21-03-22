@@ -30,6 +30,25 @@ class Room
      * @ORM\Column (type="string", length=500)
      */
     private $description;
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $programedFor;
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="rooms")
+     */
+    private $users;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime('now');
+        $this->users = new ArrayCollection();
+        $this->programedFor = new \DateTime();
+    }
 
     /**
      * @return mixed
@@ -50,16 +69,6 @@ class Room
     }
 
     /**
-     * @ORM\Column(type="datetime")
-     */
-    private $createdAt;
-
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $programedFor;
-
-    /**
      * @return mixed
      */
     public function getProgramedFor()
@@ -77,27 +86,9 @@ class Room
         return $this;
     }
 
-    /**
-     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="rooms")
-     */
-    private $users;
-
-    public function __construct()
-    {
-        $this->createdAt = new \DateTime('now');
-        $this->users = new ArrayCollection();
-        $this->programedFor = new \DateTime();
-    }
-
-
     public function __toString(): string
     {
         return $this->getName();
-           }
-
-    public function getId(): ?int
-    {
-        return $this->id;
     }
 
     public function getName(): ?string
@@ -110,6 +101,11 @@ class Room
         $this->name = $name;
 
         return $this;
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
     }
 
     public function getCreatedAt(): ?\DateTime

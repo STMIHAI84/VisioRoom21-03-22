@@ -4,30 +4,28 @@ namespace App\Controller;
 
 use App\Entity\Room;
 use App\Entity\User;
-use App\Form\SearchableEntityType;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
 #[Route('/user')]
 class AuthController extends AbstractController
 {
+
     #[Route('/dash', name: 'admin_dash')]
-    public function dash(): Response
+    public function dash(Request $request): Response
     {
         return $this->render('dashboard/dashboard.html.twig', [
             'controller_name' => 'AuthController',
         ]);
+
     }
 
     #[Route('/update', name: 'user_update', methods: ['GET', 'POST'])]
@@ -46,7 +44,7 @@ class AuthController extends AbstractController
                     return $er->createQueryBuilder('r')
                         ->orderBy('r.name', 'ASC');
                 },
-                'label'=>false,
+                'label' => false,
                 'by_reference' => false,
                 'attr' => [
                     'class' => 'rooms']
@@ -60,12 +58,6 @@ class AuthController extends AbstractController
 
 
         $form->handleRequest($request);//traitement du formulaire(submission)
-        if($request->getUser('imageFile')){
-            $filename=$request->imageFile->getClientOriginalName();
-            $this->deletOldImageFile();
-            $request->imageFile->storeAs(['image',$filename,'users']);
-            $this->User()->update(['image'=>$filename]);
-        }
         if ($form->isSubmitted() && $form->isValid()) {
             if (!$user->getId()) {
                 $user->setCreatedAt(new \DateTime());
@@ -93,19 +85,5 @@ class AuthController extends AbstractController
         return $this->render('Admin/user/show.html.twig', [
             'user' => $user,
         ]);
-    }
-
-
-    #[Route('/meeting', name: 'admin_meeting')]
-    public function meeting(): Response
-    {
-        return $this->redirect('https://video-chat-app-v1.herokuapp.com/');
-    }
-
-    private function deletOldImageFile()
-    {
-        if ($this->User()->image) {
-            Storage::delete('/public/users/images/' . $this->user()->image);
-        }
     }
 }

@@ -2,6 +2,8 @@ let callModalBtn = document.querySelector('.quick__link');
 let modalOverlay = document.querySelector('.overlay');
 let modalWindow = document.querySelector('.modal');
 let closeModalBtn = document.querySelector('.modal__header-close')
+// const axios = require ('axios');
+
 
 if (callModalBtn) {
     callModalBtn.addEventListener('click', () => {
@@ -12,8 +14,18 @@ if (callModalBtn) {
         /*generate link */
 
         let randomSymbols = Math.random().toString(36).slice(9) + '-' + Math.random().toString(36).slice(9) + '-' + Math.random().toString(36).slice(8);
-        generatedLink.textContent = 'test.visioroom.com/' +  randomSymbols
-    })
+        generatedLink.textContent
+            ='https://127.0.0.1:8000/visio/'
+            // 'test.visioroom.com/visio/'
+            + randomSymbols
+
+
+        axios.post('/api/'+randomSymbols, data=randomSymbols)
+              .then(response => {
+                  console.log(response.data);
+              });
+
+    });
 }
 if (closeModalBtn) {
     closeModalBtn.addEventListener('click', () => {

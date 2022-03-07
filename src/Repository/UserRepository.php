@@ -17,7 +17,7 @@ use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
  * @method User[]    findAll()
  * @method User[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class UserRepository extends ServiceEntityRepository implements PasswordUpgraderInterface,UserLoaderInterface
+class UserRepository extends ServiceEntityRepository implements PasswordUpgraderInterface, UserLoaderInterface
 {
     public function __construct(ManagerRegistry $registry)
     {
@@ -38,6 +38,13 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->_em->persist($user);
         $this->_em->flush();
     }
+
+    /** @deprecated since Symfony 5.3 */
+    public function loadUserByUsername(string $fullNameOrEmail): ?User
+    {
+        return $this->UserLoaderInterface($fullNameOrEmail);
+    }
+
     public function UserLoaderInterface(string $fullNameOrEmail): ?User
     {
         $entityManager = $this->getEntityManager();
@@ -49,12 +56,6 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         )
             ->setParameter('query', $fullNameOrEmail)
             ->getOneOrNullResult();
-    }
-
-    /** @deprecated since Symfony 5.3 */
-    public function loadUserByUsername(string $fullNameOrEmail): ?User
-    {
-        return $this->UserLoaderInterface($fullNameOrEmail);
     }
 
     /**

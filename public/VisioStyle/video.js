@@ -1,5 +1,3 @@
-// let localDisplayName = '{{app.user}}'
-// localStorage.setItem('user', localDisplayName)
 let peerConnections = {},
     wsConnection;
 var peerConnectionConfig = {
@@ -15,7 +13,7 @@ var constraints = {
         height: { max: 240 },
         frameRate: { max: 30 },
     },
-    audio: true,
+    audio: false,
 };
 
 navigator.mediaDevices.getUserMedia(constraints)

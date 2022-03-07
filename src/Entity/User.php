@@ -77,7 +77,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, \Serial
     private $createdAt;
 
     /**
-     *  @var string|null
+     * @var string|null
      * @ORM\ManyToMany(targetEntity=Room::class, mappedBy="users")
      */
     private $rooms;
@@ -190,10 +190,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, \Serial
 
         return $this;
     }
-     public function __toString(): string
-     {
-         return $this->fullName ?: ' ';
-     }
+
+    public function __toString(): string
+    {
+        return $this->fullName ?: ' ';
+    }
 
     public function isVerified(): bool
     {
@@ -310,6 +311,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, \Serial
 
         return $this;
     }
+
     public function serialize()
     {
         return serialize(array(
@@ -320,6 +322,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, \Serial
             $this->filename,
         ));
     }
+
 //
     public function unserialize($data)
     {
@@ -331,6 +334,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, \Serial
             $this->filename,
             ) = unserialize($data);
     }
+
     public function __call(string $name, array $arguments)
     {
         // TODO: Implement @method string getUserIdentifier()

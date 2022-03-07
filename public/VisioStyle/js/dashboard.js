@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function () {
     $(".main-sub-menu").on("click", function (e) {
         e.preventDefault()
         $(".sub-menu").css({"display": "none"});

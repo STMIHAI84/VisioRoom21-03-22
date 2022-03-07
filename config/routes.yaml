@@ -1,3 +1,7 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+post:
+  path: /visio/{randomSymbols}
+  controller: App\Controller\MainController::post
+url:
+  path: /api/{randomSymbols}
+  controller: App\Controller\MainController::postData
+

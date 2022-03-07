@@ -30,19 +30,19 @@ class RoomType extends AbstractType
             ])
             ->add('users'
                 , EntityType::class, [
-                'class' => User::class,
-                'multiple' => true,
-                'placeholder' => '-- Votre choix --',
-                'choice_label' => 'fullName',
-                'query_builder' => function (EntityRepository $er) {
-                    return $er->createQueryBuilder('u')
-                        ->orderBy('u.fullName', 'ASC');
-                },
-                'label'=>false,
-                'by_reference' => false,
-                'attr' => [
-                    'class' => 'users input'],
-            ]);
+                    'class' => User::class,
+                    'multiple' => true,
+                    'placeholder' => '-- Votre choix --',
+                    'choice_label' => 'fullName',
+                    'query_builder' => function (EntityRepository $er) {
+                        return $er->createQueryBuilder('u')
+                            ->orderBy('u.fullName', 'ASC');
+                    },
+                    'label' => false,
+                    'by_reference' => false,
+                    'attr' => [
+                        'class' => 'users input'],
+                ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

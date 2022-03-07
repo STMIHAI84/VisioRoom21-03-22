@@ -18,19 +18,19 @@
                     <nav class="nav">
                         <ul class="nav__list">
                             {% if is_granted('ROLE_SUPER_ADMIN') %}
-                            <li>
-                                <a href="#" aria-current="page"
-                                   class="router-link-exact-active router-link-active"><img
-                                            src="{{ asset('VisioStyle/assets/icons/squares.svg') }}" alt="">
-                                    Dashboard </a>
-                            </li>
-                                {% else %}
-                                    <li>
-                                        <a href="{{ path('admin_dash') }}" aria-current="page"
-                                           class="router-link-exact-active router-link-active"><img
-                                                    src="{{ asset('VisioStyle/assets/icons/squares.svg') }}" alt="">
-                                            Dashboard </a>
-                                    </li>
+                                <li>
+                                    <a href="#" aria-current="page"
+                                       class="router-link-exact-active router-link-active"><img
+                                                src="{{ asset('VisioStyle/assets/icons/squares.svg') }}" alt="">
+                                        Dashboard </a>
+                                </li>
+                            {% else %}
+                                <li>
+                                    <a href="{{ path('admin_dash') }}" aria-current="page"
+                                       class="router-link-exact-active router-link-active"><img
+                                                src="{{ asset('VisioStyle/assets/icons/squares.svg') }}" alt="">
+                                        Dashboard </a>
+                                </li>
                             {% endif %}
                             <li>
                                 <a href="/contacts" class=""><img
@@ -76,9 +76,11 @@
                     <div class="page__header">
                         <div class="page__user">
                             {% if 'ROLE_USER' %}
-                                <div class="page__user-avatar"><img src="{{ asset('VisioStyle/assets/img/avatar.png') }}" alt="">
-                                    <div class="page__user-edit"><img src="{{ asset('VisioStyle/assets/icons/change-avatar.svg') }}" alt=""></div>
-                                    <div class="page__user-status"></div>
+                            <div class="page__user-avatar"><img src="{{ asset('VisioStyle/assets/img/avatar.png') }}"
+                                                                alt="">
+                                <div class="page__user-edit"><img
+                                            src="{{ asset('VisioStyle/assets/icons/change-avatar.svg') }}" alt=""></div>
+                                <div class="page__user-status"></div>
                                 {% endif %}
                                 <div class="page__user-status"></div>
                             </div>
@@ -140,8 +142,6 @@
         </div>
     </div>
 </main>
-
-
     <div class="modal__container">
         <div class="overlay"></div>
         <div class="modal">
@@ -156,7 +156,7 @@
                     <div class="form__control"><input readonly="readonly" autocomplete="off" type="text"
                                                       class="input rounded input--small link--input"><span
                                 class="generated--link">
-                            https://video-chat-app-v1.herokuapp.com/b6361da7-bfca-43af-93d9-2bae614d2c0d</span>
+                            </span>
                         <div class="button__group-btn">
                             <button class="btn btn--medium btn--default copy--btn"><!----> Copy</button>
                         </div>

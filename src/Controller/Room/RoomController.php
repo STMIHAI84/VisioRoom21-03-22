@@ -16,11 +16,12 @@ class RoomController extends AbstractController
     #[Route('/schedule', name: 'schedule_meeting')]
     public function add(Request $request, EntityManagerInterface $manager): Response
     {
-        {   $room = new Room();
+        {
+            $room = new Room();
             $form = $this->createForm(RoomType::class, $room);
             $form->handleRequest($request);
             if ($form->isSubmitted() && $form->isValid()) {
-                $manager= $this->getDoctrine()->getManager();
+                $manager = $this->getDoctrine()->getManager();
                 $manager->persist($room);
                 $manager->flush();
                 return $this->redirectToRoute('admin_dash', [], Response::HTTP_SEE_OTHER);
@@ -86,7 +87,7 @@ class RoomController extends AbstractController
     #[Route('/room/{id}', name: 'room_delete', methods: ['POST'])]
     public function delete(Request $request, Room $room, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$room->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $room->getId(), $request->request->get('_token'))) {
             $entityManager->remove($room);
             $entityManager->flush();
         }
