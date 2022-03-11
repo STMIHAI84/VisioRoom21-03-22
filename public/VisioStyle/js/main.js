@@ -19,12 +19,12 @@ if (callModalBtn) {
             // 'test.visioroom.com/visio/'
             + randomSymbols
 
-
+        localStorage.setItem('room', randomSymbols)
         axios.post('/api/'+randomSymbols, data=randomSymbols)
               .then(response => {
+
                   console.log(response.data);
               });
-
     });
 }
 if (closeModalBtn) {
@@ -119,4 +119,5 @@ if (chatBtn) {
     chatHistoryNotificationClose.addEventListener('click', () => {
         chatHistoryNotification.classList.add('showing')
     })
+
 }

@@ -6,7 +6,17 @@
     width: 100%;
     height: 100%;
 }
-
+.visible{
+    display:block;
+    background: red;
+}
+.hidden{
+    display: none;
+}
+.changeFull{
+    width:100%!important;
+    height: 100%!important;
+}
 .discussion__grid {
     display: -ms-grid;
     display: grid;
@@ -358,7 +368,7 @@ body {
 video {
     height: 300px;
     border-radius: 1rem;
-    margin: 0.5rem;
+    margin: 4.5rem;
     width: 400px;
     object-fit: cover;
     transform: rotateY(180deg);
@@ -383,8 +393,6 @@ video {
 .options__right {
     margin-left: auto;
 }
-
-
 :root {
     --rowHeight: 98vh;
     --colWidth: 98vw;
@@ -395,21 +403,17 @@ body{
 }
 
 .videos {
-
     display: grid;
     grid-gap: 5px;
     grid-auto-flow: row;
-
     grid-template-columns: repeat(auto-fit, minmax(var(--colWidth), 1fr)) ;
 }
 
 .videoContainer {
     position: relative;
     overflow: hidden;
-
     min-height: var(--rowHeight);
     min-width: var(--colWidth);
-
 }
 
 .videoContainer video {
@@ -418,7 +422,7 @@ body{
     left: 0;
     bottom: 0;
     height: auto;
-    width: 100%;
+    width: 80%;
 }
 
 .videoLabel {
@@ -426,9 +430,7 @@ body{
     font: bold 18px Arial, Sans-Serif;
     line-height: 18px;
     height: 18px;
-
     background: rgba(0, 0, 0, 0.55);
-
     position: absolute;
     left: 0;
     bottom: 0;

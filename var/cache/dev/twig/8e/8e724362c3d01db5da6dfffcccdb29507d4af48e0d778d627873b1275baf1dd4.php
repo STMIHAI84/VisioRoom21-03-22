@@ -58,6 +58,22 @@ class __TwigTemplate_9052162fbc4b427a33f893c03f437ef727da2f4c9c3284d58e6aa45bcf7
             // line 11
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("VisioStyle/css/style.css"), "html", null, true);
             echo "\">
+        <style>
+            .visible {
+                display: block;
+                background: red;
+            }
+
+            .hidden {
+                display: none;
+            }
+
+            .changeFull {
+                width: 100% !important;
+                height: 100% !important;
+
+            }
+        </style>
 
     </head>
 
@@ -78,113 +94,128 @@ class __TwigTemplate_9052162fbc4b427a33f893c03f437ef727da2f4c9c3284d58e6aa45bcf7
                 </div>
                 <div class=\"discussion__chat\">
                     <div class=\"discussion__chat-header\">
+
                         <p>Group chat</p><img src=\"";
-            // line 32
+            // line 49
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("VisioStyle/assets/icons/close.svg"), "html", null, true);
-            echo "\" alt=\"\"></div>
+            echo "\" alt=\"\">
+                    </div>
                     <div class=\"discussion__chat-notify \"><img src=\"";
-            // line 33
+            // line 51
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("VisioStyle/assets/icons/info.svg"), "html", null, true);
             echo "\"
                                                                alt=\"\">
                         <p> When the video call ends, <br>the messages will be deleted! </p><img
                                 src=\"";
-            // line 36
+            // line 54
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("VisioStyle/assets/icons/close.svg"), "html", null, true);
             echo "\" alt=\"\" class=\"notify-close\">
                     </div>
-                    <div class=\"discussion__chat-messages\"></div>
+
+                    <div class=\"messages\"></div>
                     <div class=\"discussion__chat-input\">
-                        <div class=\"form__control\"><input type=\"text\" placeholder=\"Type a message...\"
+                        <div class=\"form__control\"><input id=\"input\" type=\"text\" placeholder=\"Type a message...\"
                                                           class=\"input input--small rounded\">
-                            <button><img src=\"";
-            // line 42
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("VisioStyle/assets/icons/send.svg"), "html", null, true);
-            echo "\" alt=\"\"></button>
-                        </div>
-                    </div>
-                </div>
-                <div class=\"discussion__chat-actions\">
-                    <div class=\"discussion__chat-time\"><span></span>
-                        <p>00 : 00</p>
-                    </div>
-                    <div class=\"discussion__chat-btns\">
-                        <div class=\"button__group-btn\">
-                            <button class=\"btn btn--default\"><img
-                                        src=\"";
-            // line 53
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("VisioStyle/assets/icons/expand.svg"), "html", null, true);
-            echo "\" alt=\"\"></button>
-                        </div>
-                        <div class=\"button__group-btn\">
-                            <button class=\"btn btn--default\"><img
-                                        src=\"";
-            // line 57
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("VisioStyle/assets/icons/microphone.svg"), "html", null, true);
-            echo "\" alt=\"\"></button>
-                        </div>
-                        <div class=\"button__group-btn\"><a href=\"";
-            // line 59
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_dash");
-            echo "\">
-                                <button class=\"btn btn--default end\"><img
-                                            src=\"";
+                            <button id=\"send\"><img src=\"";
             // line 61
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("VisioStyle/assets/icons/endcall.svg"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("VisioStyle/assets/icons/send.svg"), "html", null, true);
             echo "\" alt=\"\">
-                                    </button></a>
-                        </div>
-                        <div class=\"button__group-btn\">
-                            <button class=\"btn btn--default\"><img src=\"";
-            // line 65
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("VisioStyle/assets/icons/video.svg"), "html", null, true);
-            echo "\"
-                                                                  alt=\"\"></button>
-                        </div>
-                        <div class=\"button__group-btn\">
-                            <button class=\"btn btn--default\"><img src=\"";
-            // line 69
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("VisioStyle/assets/icons/sound.svg"), "html", null, true);
-            echo "\"
-                                                                  alt=\"\"></button>
+                            </button>
                         </div>
                     </div>
-                    <div class=\"discussion__chat-show\"><img src=\"";
-            // line 73
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("VisioStyle/assets/icons/chat-btn.svg"), "html", null, true);
-            echo "\"
-                                                            alt=\"\"></div>
                 </div>
             </div>
+            <div class=\"discussion__chat-actions\">
+                <div class=\"discussion__chat-time\"><span></span>
+                    <p>00 : 00</p>
+                </div>
+                <div class=\"discussion__chat-btns\">
+                    <div class=\"button__group-btn\">
+                        <button class=\"btn btn--default toggleFullscreen\"><img
+                                    src=\"";
+            // line 74
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("VisioStyle/assets/icons/expand.svg"), "html", null, true);
+            echo "\" alt=\"\"></button>
+                    </div>
+                    <div class=\"button__group-btn\">
+                        <button class=\"btn btn--default disable--audio\"><img
+                                    src=\"";
+            // line 78
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("VisioStyle/assets/icons/microphone.svg"), "html", null, true);
+            echo "\" alt=\"\"></button>
+                    </div>
+                    <div class=\"button__group-btn\"><a href=\"";
+            // line 80
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_dash");
+            echo "\">
+                            <button class=\"btn btn--default end stopVideo\"><img
+                                        src=\"";
+            // line 82
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("VisioStyle/assets/icons/endcall.svg"), "html", null, true);
+            echo "\" alt=\"\">
+                            </button>
+
+                        </a>
+                    </div>
+                    <div class=\"button__group-btn\">
+                        <button class=\"btn btn--default disable--video\"><img
+                                    src=\"";
+            // line 89
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("VisioStyle/assets/icons/video.svg"), "html", null, true);
+            echo "\"
+                                    alt=\"\"></button>
+                        <button class=\"btn btn--default enable--video hidden\"><img
+                                    src=\"";
+            // line 92
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("VisioStyle/assets/icons/video.svg"), "html", null, true);
+            echo "\"
+                                    alt=\"\"></button>
+                    </div>
+                    <div class=\"button__group-btn\">
+                        <button class=\"btn btn--default mute--button\"><img
+                                    src=\"";
+            // line 97
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("VisioStyle/assets/icons/sound.svg"), "html", null, true);
+            echo "\"
+                                    alt=\"\"></button>
+                    </div>
+                </div>
+                <div class=\"discussion__chat-show\"><img src=\"";
+            // line 101
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("VisioStyle/assets/icons/chat-btn.svg"), "html", null, true);
+            echo "\"
+                                                        alt=\"\"></div>
+            </div>
         </div>
-    </div>
-    <script src=\"";
-            // line 79
+
+        <script src=\"";
+            // line 106
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("VisioStyle/js/main.js"), "html", null, true);
             echo "\"></script>
-    <script src=\"https://cdn.socket.io/4.4.1/socket.io.min.js\"
-            integrity=\"sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H\"
-            crossorigin=\"anonymous\"></script>
-    <script src=\"";
-            // line 83
+        <script src=\"https://cdn.socket.io/4.4.1/socket.io.min.js\"
+                integrity=\"sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H\"
+                crossorigin=\"anonymous\"></script>
+        <script src=\"";
+            // line 110
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("VisioStyle/video.js"), "html", null, true);
             echo "\"></script>
-    <script>
-        let localDisplayName = '";
-            // line 85
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 85, $this->source); })()), "user", [], "any", false, false, false, 85), "html", null, true);
+        <script>
+            let localDisplayName = '";
+            // line 112
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 112, $this->source); })()), "user", [], "any", false, false, false, 112), "html", null, true);
             echo "'
-        localStorage.setItem('user', localDisplayName)
-    </script>
+            localStorage.setItem('user', localDisplayName)
+        </script>
+    </div>
     </body>
     </html>
 ";
         } else {
-            // line 91
+            // line 119
             echo "    ";
-            $this->loadTemplate("/bundles/TwigBundle/Exception/error404.html.twig", "video/video.html.twig", 91)->display($context);
+            $this->loadTemplate("/bundles/TwigBundle/Exception/error403.html.twig", "video/video.html.twig", 119)->display($context);
         }
-        // line 93
+        // line 121
         echo "
 ";
         
@@ -207,7 +238,7 @@ class __TwigTemplate_9052162fbc4b427a33f893c03f437ef727da2f4c9c3284d58e6aa45bcf7
 
     public function getDebugInfo()
     {
-        return array (  188 => 93,  184 => 91,  175 => 85,  170 => 83,  163 => 79,  154 => 73,  147 => 69,  140 => 65,  133 => 61,  128 => 59,  123 => 57,  116 => 53,  102 => 42,  93 => 36,  87 => 33,  83 => 32,  59 => 11,  55 => 10,  45 => 2,  43 => 1,);
+        return array (  219 => 121,  215 => 119,  205 => 112,  200 => 110,  193 => 106,  185 => 101,  178 => 97,  170 => 92,  164 => 89,  154 => 82,  149 => 80,  144 => 78,  137 => 74,  121 => 61,  111 => 54,  105 => 51,  100 => 49,  59 => 11,  55 => 10,  45 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -223,6 +254,22 @@ class __TwigTemplate_9052162fbc4b427a33f893c03f437ef727da2f4c9c3284d58e6aa45bcf7
         <title>Document</title>
         <link rel=\"stylesheet\" href=\"{{ asset('VisioStyle/css/MeetingPageStyle.css') }}\">
         <link rel=\"stylesheet\" href=\"{{ asset('VisioStyle/css/style.css') }}\">
+        <style>
+            .visible {
+                display: block;
+                background: red;
+            }
+
+            .hidden {
+                display: none;
+            }
+
+            .changeFull {
+                width: 100% !important;
+                height: 100% !important;
+
+            }
+        </style>
 
     </head>
 
@@ -243,66 +290,78 @@ class __TwigTemplate_9052162fbc4b427a33f893c03f437ef727da2f4c9c3284d58e6aa45bcf7
                 </div>
                 <div class=\"discussion__chat\">
                     <div class=\"discussion__chat-header\">
-                        <p>Group chat</p><img src=\"{{ asset('VisioStyle/assets/icons/close.svg') }}\" alt=\"\"></div>
+
+                        <p>Group chat</p><img src=\"{{ asset('VisioStyle/assets/icons/close.svg') }}\" alt=\"\">
+                    </div>
                     <div class=\"discussion__chat-notify \"><img src=\"{{ asset('VisioStyle/assets/icons/info.svg') }}\"
                                                                alt=\"\">
                         <p> When the video call ends, <br>the messages will be deleted! </p><img
                                 src=\"{{ asset('VisioStyle/assets/icons/close.svg') }}\" alt=\"\" class=\"notify-close\">
                     </div>
-                    <div class=\"discussion__chat-messages\"></div>
+
+                    <div class=\"messages\"></div>
                     <div class=\"discussion__chat-input\">
-                        <div class=\"form__control\"><input type=\"text\" placeholder=\"Type a message...\"
+                        <div class=\"form__control\"><input id=\"input\" type=\"text\" placeholder=\"Type a message...\"
                                                           class=\"input input--small rounded\">
-                            <button><img src=\"{{ asset('VisioStyle/assets/icons/send.svg') }}\" alt=\"\"></button>
+                            <button id=\"send\"><img src=\"{{ asset('VisioStyle/assets/icons/send.svg') }}\" alt=\"\">
+                            </button>
                         </div>
                     </div>
-                </div>
-                <div class=\"discussion__chat-actions\">
-                    <div class=\"discussion__chat-time\"><span></span>
-                        <p>00 : 00</p>
-                    </div>
-                    <div class=\"discussion__chat-btns\">
-                        <div class=\"button__group-btn\">
-                            <button class=\"btn btn--default\"><img
-                                        src=\"{{ asset('VisioStyle/assets/icons/expand.svg') }}\" alt=\"\"></button>
-                        </div>
-                        <div class=\"button__group-btn\">
-                            <button class=\"btn btn--default\"><img
-                                        src=\"{{ asset('VisioStyle/assets/icons/microphone.svg') }}\" alt=\"\"></button>
-                        </div>
-                        <div class=\"button__group-btn\"><a href=\"{{ path('admin_dash') }}\">
-                                <button class=\"btn btn--default end\"><img
-                                            src=\"{{ asset('VisioStyle/assets/icons/endcall.svg') }}\" alt=\"\">
-                                    </button></a>
-                        </div>
-                        <div class=\"button__group-btn\">
-                            <button class=\"btn btn--default\"><img src=\"{{ asset('VisioStyle/assets/icons/video.svg') }}\"
-                                                                  alt=\"\"></button>
-                        </div>
-                        <div class=\"button__group-btn\">
-                            <button class=\"btn btn--default\"><img src=\"{{ asset('VisioStyle/assets/icons/sound.svg') }}\"
-                                                                  alt=\"\"></button>
-                        </div>
-                    </div>
-                    <div class=\"discussion__chat-show\"><img src=\"{{ asset('VisioStyle/assets/icons/chat-btn.svg') }}\"
-                                                            alt=\"\"></div>
                 </div>
             </div>
+            <div class=\"discussion__chat-actions\">
+                <div class=\"discussion__chat-time\"><span></span>
+                    <p>00 : 00</p>
+                </div>
+                <div class=\"discussion__chat-btns\">
+                    <div class=\"button__group-btn\">
+                        <button class=\"btn btn--default toggleFullscreen\"><img
+                                    src=\"{{ asset('VisioStyle/assets/icons/expand.svg') }}\" alt=\"\"></button>
+                    </div>
+                    <div class=\"button__group-btn\">
+                        <button class=\"btn btn--default disable--audio\"><img
+                                    src=\"{{ asset('VisioStyle/assets/icons/microphone.svg') }}\" alt=\"\"></button>
+                    </div>
+                    <div class=\"button__group-btn\"><a href=\"{{ path('admin_dash') }}\">
+                            <button class=\"btn btn--default end stopVideo\"><img
+                                        src=\"{{ asset('VisioStyle/assets/icons/endcall.svg') }}\" alt=\"\">
+                            </button>
+
+                        </a>
+                    </div>
+                    <div class=\"button__group-btn\">
+                        <button class=\"btn btn--default disable--video\"><img
+                                    src=\"{{ asset('VisioStyle/assets/icons/video.svg') }}\"
+                                    alt=\"\"></button>
+                        <button class=\"btn btn--default enable--video hidden\"><img
+                                    src=\"{{ asset('VisioStyle/assets/icons/video.svg') }}\"
+                                    alt=\"\"></button>
+                    </div>
+                    <div class=\"button__group-btn\">
+                        <button class=\"btn btn--default mute--button\"><img
+                                    src=\"{{ asset('VisioStyle/assets/icons/sound.svg') }}\"
+                                    alt=\"\"></button>
+                    </div>
+                </div>
+                <div class=\"discussion__chat-show\"><img src=\"{{ asset('VisioStyle/assets/icons/chat-btn.svg') }}\"
+                                                        alt=\"\"></div>
+            </div>
         </div>
+
+        <script src=\"{{ asset('VisioStyle/js/main.js') }}\"></script>
+        <script src=\"https://cdn.socket.io/4.4.1/socket.io.min.js\"
+                integrity=\"sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H\"
+                crossorigin=\"anonymous\"></script>
+        <script src=\"{{ asset('VisioStyle/video.js') }}\"></script>
+        <script>
+            let localDisplayName = '{{ app.user }}'
+            localStorage.setItem('user', localDisplayName)
+        </script>
     </div>
-    <script src=\"{{ asset('VisioStyle/js/main.js') }}\"></script>
-    <script src=\"https://cdn.socket.io/4.4.1/socket.io.min.js\"
-            integrity=\"sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H\"
-            crossorigin=\"anonymous\"></script>
-    <script src=\"{{ asset('VisioStyle/video.js') }}\"></script>
-    <script>
-        let localDisplayName = '{{ app.user }}'
-        localStorage.setItem('user', localDisplayName)
-    </script>
     </body>
     </html>
 {% else %}
-    {% include '/bundles/TwigBundle/Exception/error404.html.twig' %}
+    {% include '/bundles/TwigBundle/Exception/error403.html.twig' %}
 {% endif %}
 
 ", "video/video.html.twig", "C:\\Users\\UPC Media\\Desktop\\symfony\\VisioRoom_Admin_01.febr.22\\templates\\video\\video.html.twig");
